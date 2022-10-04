@@ -1,22 +1,33 @@
 import random
-turns = ['rock', 'paper', 'scissors']
+turns = ['akmens', 'papīrs', 'šķēres']
+human_turns = []
+computer_turns = []
 
 while(True):
-    human_turn = input("Enter your turn, or type exit: ")
+    human_turn = input('Enter your turn, or type exit:')
     computer_turn = random.choice(turns)
 
-    if human_turn == 'exit':
-        print('Thank you for playing! Bye bye')
-        break
-
-    print(f'Human:{human_turn} vs. Computer:{computer_turn}')
+    human_turns.append(human_turn)
+    computer_turns.append(computer_turn)
+    
+    print(f'Human:{human_turn} vs.:{computer_turn}')
     if human_turn == computer_turn:
         print('Draw!')
-    elif human_turn == 'rock' and computer_turn == 'scissors':
+
+    if human_turn == 'exit':
+        print('Thank you for playing! Bye, bye')
+        break
+
+    elif human_turn == 'akmens' and computer_turn == 'šķēres':
         print('Human wins!')
-    elif human_turn == 'paper' and computer_turn == 'rock':
+    elif human_turn == 'papīrs' and computer_turn == 'akmens':
         print('Human wins!')
-    elif human_turn == 'scissors' and computer_turn == 'paper':
+    elif human_turn == 'šķēres' and computer_turn == 'papīrs':
         print('Human wins!')
-    else:
+
+    else: 
         print('Computer wins!')
+
+print(f'You have played {len(human_turns)} times')
+print(human_turns)
+print(computer_turns)
